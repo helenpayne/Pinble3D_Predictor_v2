@@ -20,6 +20,7 @@ jobs:
       # ✅ 采集器相关（可选）
       PINBLE_BASE_URL: ${{ secrets.PINBLE_BASE_URL }}
       PINBLE_REFERER: ${{ secrets.PINBLE_REFERER }}
+      PINBLE_PRESENTINFO_HOST: ${{ secrets.PINBLE_PRESENTINFO_HOST }}
 
     steps:
       - name: 📥 Checkout repository
