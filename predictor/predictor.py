@@ -74,15 +74,22 @@ def main():
 
     print(f"✅ 预测结果已记录到: {RESULT_PATH}")
 
-    # ✅ 发送微信提醒
+    # ✅ 从环境变量解析接收人列表
+    to_users_env = os.getenv("WECHAT_TO_USERS", "")
+    to_users = [uid.strip() for uid in to_users_env.split(",") if uid.strip()]
+    if not to_users:
+        raise ValueError("❌ 微信提醒发送失败：环境变量 WECHAT_TO_USERS 未设置或为空")
+
+    # ✅ 调用提醒函数
     send_wechat_template(
-        to_users_env = os.getenv("WECHAT_TO_USERS", ""),
+        to_users=to_users,
         title=f"拼搏3D 试机号预测提醒-v2",
         content1=f"预测期号：{next_issue}",
         content2=f"预测试机号：{sim_test_code_pred}",
         content3=f"上期试机号：{last_real_sim_test_code}",
         remark="请关注开奖走势，理性参考！"
     )
+
 
 if __name__ == "__main__":
     main()
