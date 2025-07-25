@@ -76,11 +76,7 @@ def main():
 
     # ✅ 发送微信提醒
     send_wechat_template(
-        to_users = [
-            "oXUv66MibUi7VInLBf7AHqMIY438",
-            "oXUv66DvDIoQG39Vnspwj97QVLn4",
-            "oXUv66HUVNyZ0Hd8RWKmkVV1dkAs"
-        ],
+        to_users_env = os.getenv("WECHAT_TO_USERS", ""),
         title=f"拼搏3D 试机号预测提醒-v2",
         content1=f"预测期号：{next_issue}",
         content2=f"预测试机号：{sim_test_code_pred}",

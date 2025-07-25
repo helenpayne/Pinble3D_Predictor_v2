@@ -9,8 +9,17 @@ jobs:
   run-full-pipeline:
     runs-on: ubuntu-latest
     env:
-      PINBLE_PRESENTINFO_HOST: ${{ secrets.PINBLE_PRESENTINFO_HOST }}
+      PYTHONIOENCODING: utf-8
+
+      # ✅ 微信提醒相关
       WECHAT_API_KEY: ${{ secrets.WECHAT_API_KEY }}
+      WECHAT_TEMPLATE_ID: ${{ secrets.WECHAT_TEMPLATE_ID }}
+      WECHAT_API_URL: ${{ secrets.WECHAT_API_URL }}
+      WECHAT_TO_USERS: ${{ secrets.WECHAT_TO_USERS }}
+
+      # ✅ 采集器相关（可选）
+      PINBLE_BASE_URL: ${{ secrets.PINBLE_BASE_URL }}
+      PINBLE_REFERER: ${{ secrets.PINBLE_REFERER }}
 
     steps:
       - name: 📥 Checkout repository
