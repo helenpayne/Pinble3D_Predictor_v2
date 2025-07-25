@@ -80,15 +80,15 @@ def main():
     if not to_users:
         raise ValueError("❌ 微信提醒发送失败：环境变量 WECHAT_TO_USERS 未设置或为空")
 
-    # ✅ 调用提醒函数
-    send_wechat_template(
-        to_users=to_users,
-        title=f"拼搏3D 试机号预测提醒-v2",
-        content1=f"预测期号：{next_issue}",
-        content2=f"预测试机号：{sim_test_code_pred}",
-        content3=f"上期试机号：{last_real_sim_test_code}",
-        remark="请关注开奖走势，理性参考！"
-    )
+    # # ✅ 调用提醒函数
+    # send_wechat_template(
+    #     to_users=to_users,
+    #     title=f"拼搏3D 试机号预测提醒-v2",
+    #     content1=f"预测期号：{next_issue}",
+    #     content2=f"预测试机号：{sim_test_code_pred}",
+    #     content3=f"上期试机号：{last_real_sim_test_code}",
+    #     remark="请关注开奖走势，理性参考！"
+    # )
 
 
 if __name__ == "__main__":
